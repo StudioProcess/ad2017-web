@@ -1,0 +1,17 @@
+{
+  "name": "ad2017-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^3.5.0",
+    "semantic-ui": "^2.2.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "live-server",
+    "build": "cd semantic & gulp build"
+  },
+  "author": "",
+  "license": "ISC"
+}
