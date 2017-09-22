@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Archdiploma 2017</title>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  
+  <style type="text/css">
+    body {
+      font-weight: 200;
+      font-size: 22px;
+      /*line-height: 22px;*/
+    }
+    .text {
+      margin-top: 3em;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .block {
+      background-color: inherit;
+      top:0;
+      position: absolute;
+      padding-left: 2em;
+      opacity:0.85;
+      max-width:500px;
+    }
+    
+    .headline {
+      margin-top: 1em;
+      font-size: 44px;
+      font-weight: bold;
+    }
+    video#bgvid {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      background: url(assets/images/explosion.jpg) no-repeat;
+      background-size: cover;
+    }
+  </style>
+  
+  <script>
+    function setColor(bg, fg) {
+      $("body").css("background-color", bg);
+      $("body").css("color", fg);
+      // $("body").animate({"background-color", bg, "color", fg}, 100);
+    }
+
+    $(function() {
+      var vid = $("#bgvid")[0];
+      setInterval(function(e) {
+        var t = vid.currentTime;
+        if (t > 14.51229) setColor("#000000", "#fff");
+        else if (t > 8.6698)  setColor("#F7F7F7", "#000");
+        else if (t > 0)  setColor("#F84F51", "#fff");
+        // console.log(t);
+      }, 25);
+    });
+  </script>
+  
+</head>
+<body>
+  <video playsinline="" autoplay="" muted="" loop="" preload="metadata" id="bgvid">
+    <!-- <source src="assets/videos/.webm" type="video/webm"> -->
+    <source src="assets/explosion.mp4" type="video/mp4" onerror="fallback(parentNode)">
+    <!-- fallback gif -->
+    <!-- <img src="assets/images/image.gif"> -->
+  </video>
+  <div class="block">
+  <div class="headline">Archdiploma 2017</div>
+  <div class="text">
+      Die archdiploma feiert Jubiläum! Bereits zum zehnten Mal werden Diplomarbeiten, die an der Fakultät für Architektur und Raumplanung erarbeitet wurden, ausgestellt. Zu sehen ist ein breites Spektrum, von stadt- und raumplanerischen Strategien über architektonische Entwürfe und Umsetzungen bis hin zu theoretischen Auseinandersetzungen, das unterschiedlichste Themen und Zugänge sichtbar macht. Die Archdiploma 2017 versteht sich als Plattform, um über Ausbildung, das Berufsfeld sowie Werte und Haltungen künftiger ArchitektInnen und PlanerInnen zu diskutieren.
+    </div>
+    <div class="text">
+      The archdiploma celebrates an anniversary! For the tenth time, diploma theses, which were completed at the Faculty of Architecture and Planning, will be exhibited. In this context a broad spectrum of urban and spatial planning strategies, architectural designs, imple- mentation and theoretical work reveals a wide range of topics and approaches. Archdiploma 2017 is a platform to discuss academic education, the professional  eld as well as values
+and attitudes of future architects and planners.
+    </div>
+  </div>
+</body>
+</html>

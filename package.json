@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "live-server",
+    "start": "live-server --ignore=semantic/**",
     "build": "cd semantic & gulp build"
   },
   "author": "",
