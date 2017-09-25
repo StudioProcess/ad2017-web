@@ -59,7 +59,7 @@
       -moz-transform: translateX(-50%) translateY(-50%);
       -webkit-transform: translateX(-50%) translateY(-50%);
       transform: translateX(-50%) translateY(-50%);
-      background: url(assets/images/explosion.jpg) no-repeat;
+      /*background: url(assets/images/explosion.jpg) no-repeat;*/
       background-size: cover;
     }
   </style>
@@ -69,21 +69,24 @@
       var current_fg, current_bg;
       var fade = 300;
       
-      var setColor = function(bg, fg) {
+      var setColor = function(bg, fg, time) {
         // $("body").css("background-color", bg);
         // $("body").css("color", fg);
+        if (time !== 0) time = fade;
         if (fg != current_fg || bg != current_bg) {
           current_fg = fg; current_bg = bg;
-          $("body").animate({"backgroundColor": bg, "color": fg}, fade);
+          $("body").animate({"backgroundColor": bg, "color": fg}, time);
         }
       };
+      
+      setColor("#000", "#fff", 0);
       
       var vid = $("#bgvid")[0];
       setInterval(function(e) {
         var t = vid.currentTime;
-        if (t > 14.51229) setColor("#000000", "#fff");
-        else if (t > 8.6698)  setColor("#F7F7F7", "#000");
-        else if (t > 0)  setColor("#F84F51", "#fff");
+        if (t > 29.44) setColor("#000", "#fff");
+        else if (t > 20)  setColor("#F7F7F7", "#000");
+        else if (t > 10.12)  setColor("#F84F51", "#fff");
         // console.log(t);
       }, 25);
     });
@@ -93,7 +96,7 @@
 <body>
   <video playsinline="" autoplay="" muted="" loop="" preload="metadata" id="bgvid">
     <!-- <source src="assets/videos/.webm" type="video/webm"> -->
-    <source src="assets/explosion.mp4" type="video/mp4" onerror="fallback(parentNode)">
+    <source src="assets/archdiploma_animation.mp4" type="video/mp4" onerror="fallback(parentNode)">
     <!-- fallback gif -->
     <!-- <img src="assets/images/image.gif"> -->
   </video>
