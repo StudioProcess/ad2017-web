@@ -5,6 +5,7 @@
   <title>Archdiploma 2017</title>
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
   <script src="semantic/dist/semantic.min.js"></script>
   
   <style type="text/css">
@@ -64,13 +65,19 @@
   </style>
   
   <script>
-    function setColor(bg, fg) {
-      $("body").css("background-color", bg);
-      $("body").css("color", fg);
-      // $("body").animate({"background-color", bg, "color", fg}, 100);
-    }
-
     $(function() {
+      var current_fg, current_bg;
+      var fade = 300;
+      
+      var setColor = function(bg, fg) {
+        // $("body").css("background-color", bg);
+        // $("body").css("color", fg);
+        if (fg != current_fg || bg != current_bg) {
+          current_fg = fg; current_bg = bg;
+          $("body").animate({"backgroundColor": bg, "color": fg}, fade);
+        }
+      };
+      
       var vid = $("#bgvid")[0];
       setInterval(function(e) {
         var t = vid.currentTime;
