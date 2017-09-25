@@ -5,11 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "concurrently": "^3.5.0",
+    "lite-server": "^2.3.0",
     "semantic-ui": "^2.2.13"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "live-server --ignore=semantic/**",
+    "start": "lite-server",
     "build": "cd semantic & gulp build"
   },
   "author": "",
