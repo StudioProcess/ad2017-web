@@ -26,7 +26,18 @@
       font-weight: normal;
       font-size: 22px;
       /*line-height: 22px;*/
-      padding:0.5em;
+      padding:1em;
+    }
+    .outline {
+      outline: #000 solid 1em;
+      outline-offset: -1em;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      pointer-events: none;
     }
     video#bgvid {
       position: absolute;
@@ -45,10 +56,9 @@
       background-size: cover;
     }
     #cover .right { float:right; }
-    /* two layer images */
     .two-layer-img { position:relative; display:inline-block; }
     .two-layer-img img { position:absolute; top:0; left:0; max-width:100%; height:auto;}
-    section { margin:0 0 1em; }
+    section { margin:0 0 1em; padding:0.5em; }
   </style>
   
   <script>
@@ -57,12 +67,12 @@
       var fade = 300;
       
       var setColor = function(fg, bg, logo, time) {
-        // $("body").css("background-color", bg);
-        // $("body").css("color", fg);
         if (time !== 0) time = fade;
         if (fg != current_fg || bg != current_bg) {
           current_fg = fg; current_bg = bg;
-          $("body").animate({"backgroundColor": bg, "color": fg}, time);
+          $(".dynamic-bg").animate({"backgroundColor": bg}, time);
+          $(".dynamic-col").animate({"color": fg}, time);
+          $(".dynamic-otln").animate({"outline-color": bg}, time);
           if (logo == "w") $(".two-layer-img").showWhite(time);
           else $(".two-layer-img").showBlack(time);
          }
@@ -103,15 +113,15 @@
       
       $(".two-layer-img").setupTwoLayerImg();
       
-      setColor("#fff", "#000", "w", 0);
+      setColor("#FFF", "#000", "w", 0);
       
       var vid = $("#bgvid")[0];
       
       setInterval(function(e) {
         var t = vid.currentTime;
         if (t > 29.44) setColor("#fff", "#000", "w");
-        else if (t > 20)  setColor("#000", "#F7F7F7", "b");
-        else if (t > 10.12)  setColor("#fff", "#F84F51", "w");
+        else if (t > 20)  setColor("#000", "#F3F3F3", "b");
+        else if (t > 10.12)  setColor("#FFF", "#FF4947", "w");
         // console.log(t);
       }, 25);
     });
@@ -119,10 +129,11 @@
   
 </head>
 <body>
+  <div class="outline dynamic-otln"></div>
   <section id="cover">
     <video playsinline="" autoplay="" muted="" loop="" preload="metadata" id="bgvid">
       <!-- <source src="assets/videos/.webm" type="video/webm"> -->
-      <source src="assets/archdiploma_animation.mp4" type="video/mp4" onerror="fallback(parentNode)">
+      <source src="assets/Comp_1_9_brake.mp4" type="video/mp4" onerror="fallback(parentNode)">
       <!-- fallback gif -->
       <!-- <img src="assets/images/image.gif"> -->
     </video>
