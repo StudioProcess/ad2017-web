@@ -8,10 +8,13 @@
     "lite-server": "^2.3.0",
     "semantic-ui": "^2.2.13"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "dploy": "^1.2.0"
+  },
   "scripts": {
-    "start": "lite-server",
-    "build": "cd semantic & gulp build"
+    "start": "lite-server --baseDir=\"public\"",
+    "build": "cd semantic & gulp build",
+    "deploy": "dploy"
   },
   "author": "",
   "license": "ISC"

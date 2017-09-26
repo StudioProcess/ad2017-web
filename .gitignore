@@ -58,4 +58,9 @@ typings/
 .env
 
 # Exclude proprietary fonts
-assets/Dia*
+public/assets/Dia*
+
+# Exclude credentials
+.ftp*
+dploy.yaml
+public/.rev
