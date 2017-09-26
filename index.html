@@ -27,6 +27,24 @@
       font-size: 22px;
       /*line-height: 22px;*/
     }
+    video#bgvid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      /*background: url(assets/images/explosion.jpg) no-repeat;*/
+      background-size: cover;
+    }
+    #cover { padding:0.5em; }
+    #cover .right { float:right; }
     .text {
       margin-top: 3em;
       padding-left: 5px;
@@ -46,22 +64,7 @@
       font-size: 44px;
       font-weight: bold;
     }
-    video#bgvid {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -100;
-      -ms-transform: translateX(-50%) translateY(-50%);
-      -moz-transform: translateX(-50%) translateY(-50%);
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%);
-      /*background: url(assets/images/explosion.jpg) no-repeat;*/
-      background-size: cover;
-    }
+    
     
     /* two layer images */
     .two-layer-img { position:relative; display:inline-block; }
@@ -84,6 +87,12 @@
           else $(".two-layer-img").showBlack(time);
          }
       };
+      
+      var resizeCover = function() {
+        $("#cover").css("height", $(window).height());
+      };
+      $(window).resize(resizeCover);
+      resizeCover();
       
       $.fn.setupTwoLayerImg = function() {
         return this.each(function() {
@@ -130,15 +139,15 @@
   
 </head>
 <body>
-  <section>
+  <section id="cover">
     <video playsinline="" autoplay="" muted="" loop="" preload="metadata" id="bgvid">
       <!-- <source src="assets/videos/.webm" type="video/webm"> -->
       <source src="assets/archdiploma_animation.mp4" type="video/mp4" onerror="fallback(parentNode)">
       <!-- fallback gif -->
       <!-- <img src="assets/images/image.gif"> -->
     </video>
-    <span class=two-layer-img><img src="assets/logo_white.png" alt=""><img src="assets/logo_black.png" alt=""></span>
-    <span class=two-layer-img><img src="assets/date_white.png" alt=""><img src="assets/date_black.png" alt=""></span>
+    <span class="two-layer-img"><img src="assets/logo_white.png" alt="Archdiploma 2017"><img src="assets/logo_black.png" alt="Archdiploma 2017"></span>
+    <span class="two-layer-img right"><img src="assets/date_white.png" alt="12.10. – 7.11."><img src="assets/date_black.png" alt="12.10. – 7.11."></span>
   </section>
   
   <!-- <div class="block">
@@ -151,13 +160,13 @@
     </div>
   </div> -->
   
-  <section class="facts">
+  <section id="facts">
     Diplomarbeiten aus Architektur und Raumplanung
     <p>Ort: Erzherzog-Johann-Platz 1, 1040 Wien</p>
     <p>Öffnungszeiten: Mo-So, 12:00 bis 19:00 Uhr</p>
   </section>
   
-  <section class="team">
+  <section id="team">
     <p>
       KuratorInnen<br>
       Thomas Amann<br>
@@ -177,7 +186,7 @@
     </p>
   </section>
   
-  <section class="events">
+  <section id="events">
     <ul>
       <li>Die archdiploma feiert Jubiläum</li>
       <li>Bereits zum zehnten Mal</li>
@@ -185,7 +194,7 @@
     </ul>
   </section>
   
-  <section class="text">
+  <section id="text">
     <p>Die archdiploma findet im Herbst 2017 zum zehnten Mal statt. Im biennalen Rhythmus zeigt die Fakultät für Architektur und Raumplanung in dieser Ausstellung Diplomarbeiten beider Studienrichtungen aus zwei Jahren.</p>
     <p>Im Zuge der Archdiploma 2017 betrachtet das KuratorInnenteam jene siebenhundertsiebenundsiebzig Diplomarbeiten, die zwischen März 2015 und Jänner 2017 abgeschlossen wurden, als Universum. Es zeigt ein vielfältiges Spektrum an Themen, Zugängen und Methoden: In stadt- und raumplanerischen Arbeiten, architektonischen Entwürfen, Materialexperimenten und 1:1-Interventionen werden diverse soziale und räumliche Kontexte erschlossen und Maßstäbe bearbeitet. Das Universum aus Diplomarbeiten ist Spiegel der Fakultät sowie der Ausbildung an ihr. Als solches verrät es viel über das Studium sowie darüber worin angehende ArchitektInnen und PlanerInnen ihre Aufgabe sehen.</p>
     <p>Die Archdiploma 2017 zeigt Diplomarbeiten, die sich in besonderem Maße auszeichnen. Sei es beispielsweise durch eine besondere Bearbeitungstiefe, die Brisanz des gewählten Themas oder den Anspruch Grenzen auszuloten. Mit der diesjährigen archdiploma werden neben Diplomarbeiten vor allem auch Persönlichkeiten in den Fokus gerückt. AusstellerInnen werden nach persönlicher Motivation, Antrieb und Haltung gefragt. In Ausstellung und Katalog entsteht auf diese Weise eine Collage aus fachlichen und persönlichen Inhalten, die Aufschluss über Ansprüche, Werte und Überzeugungen einer künftigen Generation von ArchitektInnen und PlanerInnen gibt.</p>
@@ -193,7 +202,7 @@
     <p>Die Archdiploma 2017 wurde im Winter- und Sommersemester in die Lehre eingebunden. Gegenstand waren Kriterien für den Selektionsprozess/das Auswahlverfahren sowie der Ausstellungsraum.</p>
   </section>
   
-  <section class="links">
+  <section id="links">
     <a href="http://archdiploma05.archlab.tuwien.ac.at">2005</a><br>
     <a href="http://archdiploma07.archlab.tuwien.ac.at">2007</a><br>
     <a href="http://archdiploma09.archlab.tuwien.ac.at">2009</a><br>
@@ -202,6 +211,6 @@
     <a href="http://archdiploma15.archlab.tuwien.ac.at">2015</a><br>
   </section>
   
-  <section class="partners"></section>
+  <section id="partners"></section>
 </body>
 </html>
