@@ -73,7 +73,7 @@
     #facts,#team { text-align:center; }
     #links .content { font-size:2rem; }
     #partners img { max-height:100px; width:auto; max-width:100%;}
-    #partners column { align-self:center; text-align:center; }
+    #partners .column { align-self:center; text-align:center; }
   </style>
   
   <script>
@@ -81,13 +81,14 @@
       var current_fg, current_bg;
       var fade = 300;
       
-      var setColor = function(fg, bg, logo, time) {
+      var setColor = function(fg, bg, logo, link, time) {
         if (time !== 0) time = fade;
         if (fg != current_fg || bg != current_bg) {
           current_fg = fg; current_bg = bg;
           $(".dynamic-bg").animate({"backgroundColor": bg}, time);
           $(".dynamic-col").animate({"color": fg}, time);
           $(".dynamic-otln").animate({"outline-color": bg}, time);
+          $("a").animate({"color": link}, time);
           if (logo == "w") $(".two-layer-img").showWhite(time);
           else $(".two-layer-img").showBlack(time);
          }
@@ -134,9 +135,9 @@
       
       setInterval(function(e) {
         var t = vid.currentTime;
-        if (t > 29.44) setColor("#fff", "#000", "w");
-        else if (t > 20)  setColor("#000", "#F3F3F3", "b");
-        else if (t > 10.12)  setColor("#FFF", "#FF4947", "w");
+        if (t > 29.44) setColor("#fff", "#000", "w", "#000");
+        else if (t > 20)  setColor("#000", "#F3F3F3", "b", "#aaa");
+        else if (t > 10.12)  setColor("#FFF", "#FF4947", "w", "#FF4947");
         // console.log(t);
       }, 25);
     });
