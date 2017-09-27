@@ -1,7 +1,8 @@
 # ad2017-web
 
 ```
-# install node 8
+# update to node 8
+npm i n -g
 n 8
 
 # install dependencies
