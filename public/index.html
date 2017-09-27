@@ -133,13 +133,15 @@
       
       var vid = $("#bgvid")[0];
       
-      setInterval(function(e) {
+      updateColor = function() {
         var t = vid.currentTime;
         if (t > 29.44) setColor("#fff", "#000", "w", "#000");
         else if (t > 20)  setColor("#000", "#F3F3F3", "b", "#aaa");
         else if (t > 10.12)  setColor("#FFF", "#FF4947", "w", "#FF4947");
         // console.log(t);
-      }, 25);
+      };
+      setInterval(updateColor, 25);
+      $(window).on("focus", updateColor);
     });
   </script>
   
