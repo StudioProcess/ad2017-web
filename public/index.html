@@ -31,11 +31,14 @@
       font-weight: normal;
       font-size: 22px;*/
       /*line-height: 22px;*/
-      padding:1em;
+      padding:1rem;
+      font-size:1.2rem;
     }
+    a { text-decoration:underline; }
+    p { margin:1rem 0; }
     .outline {
-      outline: #000 solid 1em;
-      outline-offset: -1em;
+      outline: #000 solid 1rem;
+      outline-offset: -1rem;
       position: fixed;
       top: 0;
       bottom: 0;
@@ -60,14 +63,17 @@
       /*background: url(assets/images/explosion.jpg) no-repeat;*/
       background-size: cover;
     }
-    #logo { width:250px; position:absolute; top:1em; left:1em; }
-    #date { width:95px; position:absolute; top:1em; right:1em; }
+    #logo { width:250px; position:absolute; top:1rem; left:1rem; }
+    #date { width:95px; position:absolute; top:1rem; right:1rem; }
     .two-layer-img { position:relative; display:inline-block; }
     .two-layer-img img { position:absolute; top:0; left:0; max-width:100%; height:auto;}
-    .subtitle { position:absolute; bottom:1.5em; color:#fff; font-size: 26px;}
-    section { margin:0 0 1em; padding:0.5em; }
+    .subtitle { position:absolute; bottom:1.5rem; color:#fff; font-size: 1.5rem;}
+    section { margin:0 0 1rem; padding:0.5rem; }
     
-    #partners img { height:130px; width:auto; }
+    #facts,#team { text-align:center; }
+    #links .content { font-size:2rem; }
+    #partners img { max-height:100px; width:auto; max-width:100%;}
+    #partners column { align-self:center; text-align:center; }
   </style>
   
   <script>
@@ -152,64 +158,97 @@
     <div class="subtitle dynamic-col"><b>Diplomarbeiten aus Architektur und Raumplanung</b></div>
   </section>
   
-  
-  <section id="facts">
-    <p>
-      <b>Ort</b><br>
-      Erzherzog-Johann-Platz 1, 1040 Wien
-    </p>
+  <div class="columns">
     
-    <p>
-      <b>Öffnungszeiten</b><br>
-      Mo-So, 12:00 bis 19:00 Uhr
-    </p>
-  </section>
-  
-  <section id="team">
-    <p>
-      <b>KuratorInnen</b><br>
-      Thomas Amann<br>
-      Alexander Hagner<br>
-      Teresa-Elisa Morandini<br>
-      Kurt Weninger
-    </p>
+    <!-- Left Column -->
+    <div class="column is-one-quarter">
+      <section id="facts">
+        <p>
+          <b>Ort</b><br>
+          Erzherzog-Johann-Platz 1<br>
+          1040 Wien
+        </p>
+        
+        <p>
+          <b>Öffnungszeiten</b><br>
+          Mo–So, 12–19 Uhr
+        </p>
+        
+        <p>
+          <b>Vernissage</b><br>
+          12.&thinsp;Oktober, 19&thinsp;Uhr
+        </p>
+        
+        <p>
+          <b>Finissage</b><br>
+          7.&thinsp;November, 19&thinsp;Uhr
+        </p>
+      </section>
+      
+      <section id="team">
+        <p>
+          <b>KuratorInnen</b><br>
+          Thomas Amann<br>
+          Alexander Hagner<br>
+          Teresa-Elisa Morandini<br>
+          Kurt Weninger
+        </p>
+        
+        <p>
+          <b>Studienassistentin</b><br>
+          Sarah Bernhard
+        </p>
+        
+        <p>
+          <b>Gestaltung</b><br>
+          <a href="http://process.studio">Process – Studio for Art and Design</a>
+        </p>
+      </section>
+    </div>
     
-    <p>
-      <b>Studienassistentin</b><br>
-      Sarah Bernhard
-    </p>
-    
-    <p>
-      <b>Gestaltung</b><br>
-      <a href="http://process.studio">Process - Studio for Art and Design</a>
-    </p>
-  </section>
-  
-  <section id="events">
-    <b>Events</b><br>
-    <ul>
-      <li>Die archdiploma feiert Jubiläum</li>
-      <li>Bereits zum zehnten Mal</li>
-      <li>Die an der Fakultät für Architektur und Raumplanung</li>
-    </ul>
-  </section>
-  
-  <section id="text">
-    <p>Die archdiploma findet im Herbst 2017 zum zehnten Mal statt. Im biennalen Rhythmus zeigt die Fakultät für Architektur und Raumplanung in dieser Ausstellung Diplomarbeiten beider Studienrichtungen aus zwei Jahren.</p>
-    <p>Im Zuge der Archdiploma 2017 betrachtet das KuratorInnenteam jene siebenhundertsiebenundsiebzig Diplomarbeiten, die zwischen März 2015 und Jänner 2017 abgeschlossen wurden, als Universum. Es zeigt ein vielfältiges Spektrum an Themen, Zugängen und Methoden: In stadt- und raumplanerischen Arbeiten, architektonischen Entwürfen, Materialexperimenten und 1:1-Interventionen werden diverse soziale und räumliche Kontexte erschlossen und Maßstäbe bearbeitet. Das Universum aus Diplomarbeiten ist Spiegel der Fakultät sowie der Ausbildung an ihr. Als solches verrät es viel über das Studium sowie darüber worin angehende ArchitektInnen und PlanerInnen ihre Aufgabe sehen.</p>
-    <p>Die Archdiploma 2017 zeigt Diplomarbeiten, die sich in besonderem Maße auszeichnen. Sei es beispielsweise durch eine besondere Bearbeitungstiefe, die Brisanz des gewählten Themas oder den Anspruch Grenzen auszuloten. Mit der diesjährigen archdiploma werden neben Diplomarbeiten vor allem auch Persönlichkeiten in den Fokus gerückt. AusstellerInnen werden nach persönlicher Motivation, Antrieb und Haltung gefragt. In Ausstellung und Katalog entsteht auf diese Weise eine Collage aus fachlichen und persönlichen Inhalten, die Aufschluss über Ansprüche, Werte und Überzeugungen einer künftigen Generation von ArchitektInnen und PlanerInnen gibt.</p>
-    <p>Zur archdiploma findet ein Veranstaltungsprogramm statt, welches Inhalte der Ausstellung auf einer diskursiven Ebene aufgreift und zum Gegenstand von Debatten, Workshops und Lehrveranstaltungen macht.</p>
-    <p>Die Archdiploma 2017 wurde im Winter- und Sommersemester in die Lehre eingebunden. Gegenstand waren Kriterien für den Selektionsprozess/das Auswahlverfahren sowie der Ausstellungsraum.</p>
-  </section>
-  
-  <section id="links">
-    <b>Archdiploma Archiv</b><br>
-    <a href="http://archdiploma15.archlab.tuwien.ac.at">2015</a> — <a href="http://archdiploma13.archlab.tuwien.ac.at">2013</a> — <a href="http://archdiploma11.archlab.tuwien.ac.at">2011</a> — <a href="http://archdiploma09.archlab.tuwien.ac.at">2009</a> — <a href="http://archdiploma07.archlab.tuwien.ac.at">2007</a> — <a href="http://archdiploma05.archlab.tuwien.ac.at">2005</a>
-  </section>
+    <!-- Center Column -->
+    <div class="column">
+      <section id="text">
+        <p>Die archdiploma findet im Herbst 2017 zum zehnten Mal statt. Im biennalen Rhythmus zeigt die Fakultät für Architektur und Raumplanung in dieser Ausstellung Diplomarbeiten beider Studienrichtungen aus zwei Jahren.</p>
+        <p>Im Zuge der Archdiploma 2017 betrachtet das KuratorInnenteam jene siebenhundertsiebenundsiebzig Diplomarbeiten, die zwischen März 2015 und Jänner 2017 abgeschlossen wurden, als Universum. Es zeigt ein vielfältiges Spektrum an Themen, Zugängen und Methoden: In stadt- und raumplanerischen Arbeiten, architektonischen Entwürfen, Materialexperimenten und 1:1-Interventionen werden diverse soziale und räumliche Kontexte erschlossen und Maßstäbe bearbeitet. Das Universum aus Diplomarbeiten ist Spiegel der Fakultät sowie der Ausbildung an ihr. Als solches verrät es viel über das Studium sowie darüber worin angehende ArchitektInnen und PlanerInnen ihre Aufgabe sehen.</p>
+        <p>Die Archdiploma 2017 zeigt Diplomarbeiten, die sich in besonderem Maße auszeichnen. Sei es beispielsweise durch eine besondere Bearbeitungstiefe, die Brisanz des gewählten Themas oder den Anspruch Grenzen auszuloten. Mit der diesjährigen archdiploma werden neben Diplomarbeiten vor allem auch Persönlichkeiten in den Fokus gerückt. AusstellerInnen werden nach persönlicher Motivation, Antrieb und Haltung gefragt. In Ausstellung und Katalog entsteht auf diese Weise eine Collage aus fachlichen und persönlichen Inhalten, die Aufschluss über Ansprüche, Werte und Überzeugungen einer künftigen Generation von ArchitektInnen und PlanerInnen gibt.</p>
+        <p>Zur archdiploma findet ein Veranstaltungsprogramm statt, welches Inhalte der Ausstellung auf einer diskursiven Ebene aufgreift und zum Gegenstand von Debatten, Workshops und Lehrveranstaltungen macht.</p>
+        <p>Die Archdiploma 2017 wurde im Winter- und Sommersemester in die Lehre eingebunden. Gegenstand waren Kriterien für den Selektionsprozess/das Auswahlverfahren sowie der Ausstellungsraum.</p>
+      </section>
+      
+      <section id="links">
+        <b>Archdiploma Archiv</b><br>
+        <div class="content">
+          <a href="http://archdiploma15.archlab.tuwien.ac.at">2015</a> — <a href="http://archdiploma13.archlab.tuwien.ac.at">2013</a> — <a href="http://archdiploma11.archlab.tuwien.ac.at">2011</a> — <a href="http://archdiploma09.archlab.tuwien.ac.at">2009</a> — <a href="http://archdiploma07.archlab.tuwien.ac.at">2007</a> — <a href="http://archdiploma05.archlab.tuwien.ac.at">2005</a>
+        </div>
+        </section>
+    </div>
+    <!-- Right Column -->
+    <div class="column is-one-quarter">
+      <section id="events">
+        <b>Veranstaltungen</b><br>
+        Zur archdiploma findet ein Veranstaltungsprogramm statt, welches Inhalte der Ausstellung auf einer diskursiven Ebene aufgreift und zum Gegenstand von Debatten, Workshops und Lehrveranstaltungen macht.
+      </section>
+    </div>
+  </div>
   
   <section id="partners">
     <b>Partner</b><br>
-    <img src="assets/logos/ait.png" alt=""> <img src="assets/logos/aplusr.png" alt=""> <img src="assets/logos/artemide.png" alt=""> <img src="assets/logos/raum.png" alt=""> <img src="assets/logos/schiessling.png" alt=""> <img src="assets/logos/wien.png" alt=""> <img src="assets/logos/wittmann.png" alt=""> <img src="assets/logos/zt.png" alt="">
+    <div class="columns">
+      <div class="column is-2"><img src="assets/logos/ait.png" alt=""></div>
+      <div class="column is-2"><img src="assets/logos/aplusr.png" alt=""></div>
+      <div class="column is-2"><img src="assets/logos/artemide.png" alt=""></div>
+      <div class="column is-2"><img src="assets/logos/raum.png" alt=""></div>
+      <div class="column is-2"><img src="assets/logos/schiessling.png" alt=""></div>
+      <div class="column is-2"><img src="assets/logos/wien.png" alt=""></div>
+      <div class="column is-2"><img src="assets/logos/wittmann.png" alt=""></div>
+      <div class="column is-2"><img src="assets/logos/zt.png" alt=""></div>
+      <div class="column is-2"></div>
+      <div class="column is-2"></div>
+      <div class="column is-2"></div>
+      <div class="column is-2"></div>
+    </div>
   </section>
+  
 </body>
 </html>
