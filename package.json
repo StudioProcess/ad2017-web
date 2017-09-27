@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "concurrently": "^3.5.0",
-    "lite-server": "^2.3.0",
-    "semantic-ui": "^2.2.13"
+    "bulma": "^0.5.3"
   },
   "devDependencies": {
+    "lite-server": "^2.3.0",
     "dploy": "^1.2.0"
   },
   "scripts": {
     "start": "lite-server --baseDir=\"public\"",
-    "build": "cd semantic & gulp build",
     "deploy": "dploy"
   },
   "author": "",

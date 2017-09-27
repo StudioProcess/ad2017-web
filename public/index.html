@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Archdiploma 2017</title>
-  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
-  <script src="semantic/dist/semantic.min.js"></script>
   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" integrity="sha256-spCEAaZMKebC3rE/ZTt8jITn65b0Zan45WXblWjyDyQ=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
+
   <style type="text/css">
     @font-face {
       font-family: 'Dia';
@@ -21,10 +22,14 @@
       src: url('assets/Dia Bold.woff') format('woff'),
            url('assets/Dia Bold.ttf') format('truetype');
     }
-    body {
-      font-family: "Dia";
+    html, body, button, input, select, textarea {
+      font-family: "Dia", sans-serif;
       font-weight: normal;
-      font-size: 22px;
+    }
+    body {
+      /*font-family: "Dia";
+      font-weight: normal;
+      font-size: 22px;*/
       /*line-height: 22px;*/
       padding:1em;
     }
@@ -47,7 +52,6 @@
       min-height: 100%;
       width: auto;
       height: auto;
-      z-index: -100;
       -ms-transform: translateX(-50%) translateY(-50%);
       -moz-transform: translateX(-50%) translateY(-50%);
       -webkit-transform: translateX(-50%) translateY(-50%);
@@ -134,7 +138,7 @@
 <body>
   <div class="outline dynamic-otln"></div>
   
-  <section id="cover">
+  <section id="cover" class="dynamic-bg">
     <video playsinline="" autoplay="" muted="" loop="" preload="metadata" id="bgvid">
       <!-- <source src="assets/videos/.webm" type="video/webm"> -->
       <source src="assets/Comp_1_9_brake.mp4" type="video/mp4" onerror="fallback(parentNode)">
