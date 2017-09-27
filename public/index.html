@@ -44,8 +44,9 @@
       z-index: 9999;
       pointer-events: none;
     }
+    #cover { overflow:hidden; }
     video#bgvid {
-      position: absolute;
+      position: relative;
       top: 50%;
       left: 50%;
       min-width: 100%;
@@ -59,7 +60,8 @@
       /*background: url(assets/images/explosion.jpg) no-repeat;*/
       background-size: cover;
     }
-    #cover .right { float:right; }
+    #logo { width:250px; position:absolute; top:1em; left:1em; }
+    #date { width:95px; position:absolute; top:1em; right:1em; }
     .two-layer-img { position:relative; display:inline-block; }
     .two-layer-img img { position:absolute; top:0; left:0; max-width:100%; height:auto;}
     .subtitle { position:absolute; bottom:1.5em; color:#fff; font-size: 26px;}
@@ -94,8 +96,8 @@
       $.fn.setupTwoLayerImg = function() {
         return this.each(function() {
           var $imgs = $(this).find("img");
-          var img = $imgs.get(0); // first image 
-          $(this).css({"width":img.naturalWidth/2, "height":img.naturalHeight/2 });
+          // var img = $imgs.get(0); // first image
+          // $(this).css({"width":img.naturalWidth/2, "height":img.naturalHeight/2 });
           $imgs.last().fadeOut(0); // hide last image
         });
       };
@@ -145,10 +147,11 @@
       <!-- fallback gif -->
       <!-- <img src="assets/images/image.gif"> -->
     </video>
-    <span class="two-layer-img"><img src="assets/logo_white.png" alt="Archdiploma 2017"><img src="assets/logo_black.png" alt="Archdiploma 2017"></span>
-    <span class="two-layer-img right"><img src="assets/date_white.png" alt="12.10. – 7.11."><img src="assets/date_black.png" alt="12.10. – 7.11."></span>
+    <span id="logo" class="two-layer-img"><img src="assets/logo_white.png" alt="Archdiploma 2017"><img src="assets/logo_black.png" alt="Archdiploma 2017"></span>
+    <span id="date" class="two-layer-img right"><img src="assets/date_white.png" alt="12.10. – 7.11."><img src="assets/date_black.png" alt="12.10. – 7.11."></span>
     <div class="subtitle dynamic-col"><b>Diplomarbeiten aus Architektur und Raumplanung</b></div>
   </section>
+  
   
   <section id="facts">
     <p>
