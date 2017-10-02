@@ -66,10 +66,10 @@
     }
     #logo { width:250px; position:absolute; top:1rem; left:1rem; }
     #date { width:95px; position:absolute; top:1rem; right:1rem; }
-    .two-layer-img { position:relative; display:inline-block; }
-    .two-layer-img img { position:absolute; top:0; left:0; max-width:100%; height:auto;}
-    #subtitle { position:absolute; bottom:1.5rem; color:#fff; font-size: 1.5rem;}
-    #faculty { position:absolute; bottom:1.5rem; right:1rem; }
+    .layered-img { position:relative; display:inline-block; }
+    .layered-img img { position:absolute; top:0; left:0; max-width:100%; height:auto;}
+    #subtitle { position:absolute; bottom:1.5rem; color:#fff; font-size:1.5rem;}
+    #faculty { width:150px; height:62px; position:absolute; bottom:1.2rem; right:1.1rem; }
     section { margin:0 0 1rem; padding:0.5rem; }
     
     #facts,#team { text-align:center; }
@@ -92,8 +92,9 @@
           $(".dynamic-col").stop().animate({"color": fg}, time);
           $(".dynamic-otln").stop().animate({"outline-color": bg}, time);
           $("a").stop().animate({"color": link}, time);
-          if (logo == "w") $(".two-layer-img").showWhite(time);
-          else $(".two-layer-img").showBlack(time);
+          if (logo == "w") $(".layered-img").showLayer(2);
+          else if (logo == "r") $(".layered-img").showLayer(1);
+          else $(".layered-img").showLayer(0);
          }
       };
       
@@ -103,34 +104,27 @@
       $(window).resize(resizeCover);
       resizeCover();
       
-      $.fn.setupTwoLayerImg = function() {
+      $.fn.setupLayeredImg = function() {
         return this.each(function() {
           var $imgs = $(this).find("img");
-          // var img = $imgs.get(0); // first image
-          // $(this).css({"width":img.naturalWidth/2, "height":img.naturalHeight/2 });
-          $imgs.last().fadeOut(0); // hide last image
+          $imgs.fadeOut(0); // hide images
+          $imgs.last().fadeIn(0); // show last one
         });
       };
       
-      $.fn.showBlack = function(time) {
-        return this.each(function() {
-          if (time == undefined) time = 0;
-          var $imgs = $(this).find("img");
-          $imgs.first().fadeOut(time);
-          $imgs.last().fadeIn(time);
-        });
-      };
-      
-      $.fn.showWhite = function(time) {
+      $.fn.showLayer = function(idx, time) {
         return this.each(function() {
           if (time == undefined) time = 0;
           var $imgs = $(this).find("img");
-          $imgs.last().fadeOut(time);
-          $imgs.first().fadeIn(time);
+          $imgs.stop();
+          $imgs.filter(":visible").fadeOut(time);
+          var $show = $imgs.eq(idx);
+          if (!$show.length) $show = $imgs.last();
+          $show.stop().fadeIn(time);
         });
       };
       
-      $(".two-layer-img").setupTwoLayerImg();
+      $(".layered-img").setupLayeredImg();
       
       setColor("#FFF", "#000", "w", 0);
       
@@ -140,7 +134,7 @@
         var t = vid.currentTime;
         if (t > 29.44) setColor("#fff", "#000", "w", "#000");
         else if (t > 20)  setColor("#000", "#F3F3F3", "b", "#aaa");
-        else if (t > 10.12)  setColor("#FFF", "#FF4947", "w", "#FF4947");
+        else if (t > 10.12)  setColor("#FFF", "#FF4947", "r", "#FF4947");
         // console.log(t);
       };
       setInterval(updateColor, 25);
@@ -159,10 +153,10 @@
       <!-- fallback gif -->
       <!-- <img src="assets/img/image.gif"> -->
     </video>
-    <span id="logo" class="two-layer-img"><img src="assets/img/logo_white.png" alt="Archdiploma 2017"><img src="assets/img/logo_black.png" alt="Archdiploma 2017"></span>
-    <span id="date" class="two-layer-img right"><img src="assets/img/date_white.png" alt="12.10. – 7.11."><img src="assets/img/date_black.png" alt="12.10. – 7.11."></span>
+    <span id="logo" class="layered-img"><img src="assets/img/logo.png" alt="Archdiploma 2017"><img src="assets/img/logo_w.png" alt="Archdiploma 2017"></span>
+    <span id="date" class="layered-img right"><img src="assets/img/date.png" alt="12.10. – 7.11."><img src="assets/img/date_w.png" alt="12.10. – 7.11."></span>
     <div id="subtitle" class="dynamic-col"><b>Diplomarbeiten aus Architektur und Raumplanung</b></div>
-    <div id="faculty" class="two-layer-img right"><img src="assets/img/logo_white.png" alt="TU Wien"><img src="assets/img/logo_black.png" alt="Archdiploma 2017"></div>
+    <div id="faculty" class="layered-img right"><img src="assets/img/aplusr.png" alt="TU Wien"><img src="assets/img/aplusr_wr.png" alt="TU Wien"><img src="assets/img/aplusr_w.png" alt="TU Wien"></div>
   </section>
   
   <div class="columns">
