@@ -86,10 +86,10 @@
         if (time !== 0) time = fade;
         if (fg != current_fg || bg != current_bg) {
           current_fg = fg; current_bg = bg;
-          $(".dynamic-bg").animate({"backgroundColor": bg}, time);
-          $(".dynamic-col").animate({"color": fg}, time);
-          $(".dynamic-otln").animate({"outline-color": bg}, time);
-          $("a").animate({"color": link}, time);
+          $(".dynamic-bg").stop().animate({"backgroundColor": bg}, time);
+          $(".dynamic-col").stop().animate({"color": fg}, time);
+          $(".dynamic-otln").stop().animate({"outline-color": bg}, time);
+          $("a").stop().animate({"color": link}, time);
           if (logo == "w") $(".two-layer-img").showWhite(time);
           else $(".two-layer-img").showBlack(time);
          }
