@@ -13,14 +13,14 @@
     @font-face {
       font-family: 'Dia';
       font-weight: normal;
-      src: url('assets/Dia Regular.woff') format('woff'),
-           url('assets/Dia Regular.ttf') format('truetype');
+      src: url('assets/fonts/Dia Regular.woff') format('woff'),
+           url('assets/fonts/Dia Regular.ttf') format('truetype');
     }
     @font-face {
       font-family: 'Dia';
       font-weight: bold;
-      src: url('assets/Dia Bold.woff') format('woff'),
-           url('assets/Dia Bold.ttf') format('truetype');
+      src: url('assets/fonts/Dia Bold.woff') format('woff'),
+           url('assets/fonts/Dia Bold.ttf') format('truetype');
     }
     html, body, button, input, select, textarea {
       font-family: "Dia", sans-serif;
@@ -60,14 +60,15 @@
       -moz-transform: translateX(-50%) translateY(-50%);
       -webkit-transform: translateX(-50%) translateY(-50%);
       transform: translateX(-50%) translateY(-50%);
-      /*background: url(assets/images/explosion.jpg) no-repeat;*/
+      /*background: url(assets/img/images/explosion.jpg) no-repeat;*/
       background-size: cover;
     }
     #logo { width:250px; position:absolute; top:1rem; left:1rem; }
     #date { width:95px; position:absolute; top:1rem; right:1rem; }
     .two-layer-img { position:relative; display:inline-block; }
     .two-layer-img img { position:absolute; top:0; left:0; max-width:100%; height:auto;}
-    .subtitle { position:absolute; bottom:1.5rem; color:#fff; font-size: 1.5rem;}
+    #subtitle { position:absolute; bottom:1.5rem; color:#fff; font-size: 1.5rem;}
+    #faculty { position:absolute; bottom:1.5rem; right:1rem; }
     section { margin:0 0 1rem; padding:0.5rem; }
     
     #facts,#team { text-align:center; }
@@ -118,7 +119,7 @@
           $imgs.last().fadeIn(time);
         });
       };
-       
+      
       $.fn.showWhite = function(time) {
         return this.each(function() {
           if (time == undefined) time = 0;
@@ -152,14 +153,15 @@
   
   <section id="cover" class="dynamic-bg">
     <video playsinline="" autoplay="" muted="" loop="" preload="metadata" id="bgvid">
-      <!-- <source src="assets/videos/.webm" type="video/webm"> -->
-      <source src="assets/Comp_1_9_brake.mp4" type="video/mp4" onerror="fallback(parentNode)">
+      <!-- <source src="assets/vid/.webm" type="video/webm"> -->
+      <source src="assets/vid/Comp_1_9_brake.mp4" type="video/mp4" onerror="fallback(parentNode)">
       <!-- fallback gif -->
-      <!-- <img src="assets/images/image.gif"> -->
+      <!-- <img src="assets/img/image.gif"> -->
     </video>
-    <span id="logo" class="two-layer-img"><img src="assets/logo_white.png" alt="Archdiploma 2017"><img src="assets/logo_black.png" alt="Archdiploma 2017"></span>
-    <span id="date" class="two-layer-img right"><img src="assets/date_white.png" alt="12.10. – 7.11."><img src="assets/date_black.png" alt="12.10. – 7.11."></span>
-    <div class="subtitle dynamic-col"><b>Diplomarbeiten aus Architektur und Raumplanung</b></div>
+    <span id="logo" class="two-layer-img"><img src="assets/img/logo_white.png" alt="Archdiploma 2017"><img src="assets/img/logo_black.png" alt="Archdiploma 2017"></span>
+    <span id="date" class="two-layer-img right"><img src="assets/img/date_white.png" alt="12.10. – 7.11."><img src="assets/img/date_black.png" alt="12.10. – 7.11."></span>
+    <div id="subtitle" class="dynamic-col"><b>Diplomarbeiten aus Architektur und Raumplanung</b></div>
+    <div id="faculty" class="two-layer-img right"><img src="assets/img/logo_white.png" alt="TU Wien"><img src="assets/img/logo_black.png" alt="Archdiploma 2017"></div>
   </section>
   
   <div class="columns">
@@ -258,14 +260,14 @@
   <section id="partners">
     <b>Partner</b><br>
     <div class="columns">
-      <div class="column is-2"><img src="assets/logos/ait.png" alt=""></div>
-      <div class="column is-2"><img src="assets/logos/aplusr.png" alt=""></div>
-      <div class="column is-2"><img src="assets/logos/artemide.png" alt=""></div>
-      <div class="column is-2"><img src="assets/logos/raum.png" alt=""></div>
-      <div class="column is-2"><img src="assets/logos/schiessling.png" alt=""></div>
-      <div class="column is-2"><img src="assets/logos/wien.png" alt=""></div>
-      <div class="column is-2"><img src="assets/logos/wittmann.png" alt=""></div>
-      <div class="column is-2"><img src="assets/logos/zt.png" alt=""></div>
+      <div class="column is-2"><img src="assets/img/logos/ait.png" alt=""></div>
+      <div class="column is-2"><img src="assets/img/logos/aplusr.png" alt=""></div>
+      <div class="column is-2"><img src="assets/img/logos/artemide.png" alt=""></div>
+      <div class="column is-2"><img src="assets/img/logos/raum.png" alt=""></div>
+      <div class="column is-2"><img src="assets/img/logos/schiessling.png" alt=""></div>
+      <div class="column is-2"><img src="assets/img/logos/wien.png" alt=""></div>
+      <div class="column is-2"><img src="assets/img/logos/wittmann.png" alt=""></div>
+      <div class="column is-2"><img src="assets/img/logos/zt.png" alt=""></div>
       <div class="column is-2"></div>
       <div class="column is-2"></div>
       <div class="column is-2"></div>

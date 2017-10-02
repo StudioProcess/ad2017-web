@@ -58,7 +58,7 @@ typings/
 .env
 
 # Exclude proprietary fonts
-public/assets/Dia*
+public/assets/fonts/*
 
 # Exclude credentials
 .ftp*
