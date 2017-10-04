@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Layered Image Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" integrity="sha256-spCEAaZMKebC3rE/ZTt8jITn65b0Zan45WXblWjyDyQ=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
+
+  <style>
+    .half { width:50%; outline:5px solid gray; }
+    .layered-img { position:relative; }
+    .layered-img img { display:block; position:absolute; }
+    .layered-img .proxy { display:block; position:static; visibility:hidden; }
+  </style>
+  
+  <script>
+    $(function() {
+      var $proxy = $(".layered-img img").first().clone();
+      $proxy.addClass("proxy");
+      $(".layered-img").append($proxy);
+    });
+  </script>
+</head>
+
+
+<body>
+  <div class="half">
+    <div class="layered-img"><img src="assets/img/aplusr.png" alt=""><img src="assets/img/aplusr_wr.png" alt=""><img src="assets/img/aplusr_w.png" alt=""></div>
+  </div>
+</body>
+</html>
