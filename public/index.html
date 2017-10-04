@@ -76,8 +76,16 @@
     section { margin:0 0 1rem; padding:0.5rem; }
     
     #facts,#team { text-align:center; }
+    #links { text-align:center; }
     #links .content { font-size:1.5rem; }
-    #events .card { font-size:0.8rem; margin-top:1rem; width:95%; }
+    /*#events .card { font-size:0.8rem; margin-top:1rem; width:95%; } */
+    
+    #events { padding: 2rem 5rem; }
+    #events .columns { flex-wrap:wrap; }
+    #events .event  { border-width:1px; border-style:solid; font-size:1.2rem;}
+    #events .card { background-color:inherit; height:100%; }
+    #events .card b { font-size: 1.2rem; }
+    
     #partners { margin:0; min-height:100px; }
     #partners img { max-height:100px; width:auto; max-width:100%;}
     #partners .column { align-self:center; text-align:center; }
@@ -92,10 +100,12 @@
         if (time !== 0) time = fade;
         if (fg != current_fg || bg != current_bg) {
           current_fg = fg; current_bg = bg;
-          $(".dynamic-bg").stop().animate({"backgroundColor": bg}, time);
-          $(".dynamic-col").stop().animate({"color": fg}, time);
-          $(".dynamic-otln").stop().animate({"outline-color": bg}, time);
-          $("a").stop().animate({"color": link}, time);
+          $(".dynamic-bg, .dynamic-col, .dynamic-otln, .dynamic-brdr, a").stop(); // cancel animations
+          $(".dynamic-bg").animate({"backgroundColor": bg}, time);
+          $(".dynamic-col").animate({"color": fg}, time);
+          $(".dynamic-otln").animate({"outline-color": bg}, time);
+          $(".dynamic-brdr").animate({"border-color": link}, time);
+          $("a").animate({"color": link}, time);
           if (logo == "w") $(".layered-img").showLayer(2, time);
           else if (logo == "r") $(".layered-img").showLayer(1, time);
           else $(".layered-img").showLayer(0, time);
@@ -169,7 +179,7 @@
   <div class="columns">
     
     <!-- Left Column -->
-    <div class="column is-one-quarter">
+    <div class="column is-3">
       <section id="facts">
         <p>
           <b>Ort</b><br>
@@ -187,7 +197,20 @@
           <a href="https://www.facebook.com/Archdiploma17" target="_blank">Facebook</a>
         </p>
       </section>
-      
+    </div>
+    
+    <!-- Center Column -->
+    <div class="column is-6">
+      <section id="text">
+        <p>Die archdiploma findet im Herbst 2017 zum zehnten Mal statt. Im biennalen Rhythmus zeigt die Fakultät für Architektur und Raumplanung in dieser Ausstellung Diplomarbeiten beider Studienrichtungen aus zwei Jahren.</p>
+        <p>Im Zuge der Archdiploma 2017 betrachtet das KuratorInnenteam jene siebenhundertsiebenundsiebzig Diplomarbeiten, die zwischen März 2015 und Jänner 2017 abgeschlossen wurden, als Universum. Es zeigt ein vielfältiges Spektrum an Themen, Zugängen und Methoden: In stadt- und raumplanerischen Arbeiten, architektonischen Entwürfen, Materialexperimenten und 1:1-Interventionen werden diverse soziale und räumliche Kontexte erschlossen und Maßstäbe bearbeitet. Das Universum aus Diplomarbeiten ist Spiegel der Fakultät sowie der Ausbildung an ihr. Als solches verrät es viel über das Studium sowie darüber worin angehende ArchitektInnen und PlanerInnen ihre Aufgabe sehen.</p>
+        <p>Die Archdiploma 2017 zeigt Diplomarbeiten, die sich in besonderem Maße auszeichnen. Sei es beispielsweise durch eine besondere Bearbeitungstiefe, die Brisanz des gewählten Themas oder den Anspruch Grenzen auszuloten. Mit der diesjährigen archdiploma werden neben Diplomarbeiten vor allem auch Persönlichkeiten in den Fokus gerückt. AusstellerInnen werden nach persönlicher Motivation, Antrieb und Haltung gefragt. In Ausstellung und Katalog entsteht auf diese Weise eine Collage aus fachlichen und persönlichen Inhalten, die Aufschluss über Ansprüche, Werte und Überzeugungen einer künftigen Generation von ArchitektInnen und PlanerInnen gibt.</p>
+        <p>Die Archdiploma 2017 wurde im Winter- und Sommersemester in die Lehre eingebunden. Gegenstand waren Kriterien für den Selektionsprozess/das Auswahlverfahren sowie der Ausstellungsraum.</p>
+      </section>
+    </div>
+  
+    <!-- Right Column -->
+    <div class="column">
       <section id="team">
         <p>
           <b>KuratorInnen</b><br>
@@ -208,48 +231,169 @@
         </p>
       </section>
     </div>
+  </div>
+  
+  <section id="events">
+    <!-- <p>
+      <b>Veranstaltungen</b><br>
+      Zur archdiploma findet ein Veranstaltungsprogramm statt, welches Inhalte der Ausstellung auf einer diskursiven Ebene aufgreift und zum Gegenstand von Debatten, Workshops und Lehrveranstaltungen macht.
+    </p> -->
     
-    <!-- Center Column -->
-    <div class="column">
-      <section id="text">
-        <p>Die archdiploma findet im Herbst 2017 zum zehnten Mal statt. Im biennalen Rhythmus zeigt die Fakultät für Architektur und Raumplanung in dieser Ausstellung Diplomarbeiten beider Studienrichtungen aus zwei Jahren.</p>
-        <p>Im Zuge der Archdiploma 2017 betrachtet das KuratorInnenteam jene siebenhundertsiebenundsiebzig Diplomarbeiten, die zwischen März 2015 und Jänner 2017 abgeschlossen wurden, als Universum. Es zeigt ein vielfältiges Spektrum an Themen, Zugängen und Methoden: In stadt- und raumplanerischen Arbeiten, architektonischen Entwürfen, Materialexperimenten und 1:1-Interventionen werden diverse soziale und räumliche Kontexte erschlossen und Maßstäbe bearbeitet. Das Universum aus Diplomarbeiten ist Spiegel der Fakultät sowie der Ausbildung an ihr. Als solches verrät es viel über das Studium sowie darüber worin angehende ArchitektInnen und PlanerInnen ihre Aufgabe sehen.</p>
-        <p>Die Archdiploma 2017 zeigt Diplomarbeiten, die sich in besonderem Maße auszeichnen. Sei es beispielsweise durch eine besondere Bearbeitungstiefe, die Brisanz des gewählten Themas oder den Anspruch Grenzen auszuloten. Mit der diesjährigen archdiploma werden neben Diplomarbeiten vor allem auch Persönlichkeiten in den Fokus gerückt. AusstellerInnen werden nach persönlicher Motivation, Antrieb und Haltung gefragt. In Ausstellung und Katalog entsteht auf diese Weise eine Collage aus fachlichen und persönlichen Inhalten, die Aufschluss über Ansprüche, Werte und Überzeugungen einer künftigen Generation von ArchitektInnen und PlanerInnen gibt.</p>
-        <p>Zur archdiploma findet ein Veranstaltungsprogramm statt, welches Inhalte der Ausstellung auf einer diskursiven Ebene aufgreift und zum Gegenstand von Debatten, Workshops und Lehrveranstaltungen macht.</p>
-        <p>Die Archdiploma 2017 wurde im Winter- und Sommersemester in die Lehre eingebunden. Gegenstand waren Kriterien für den Selektionsprozess/das Auswahlverfahren sowie der Ausstellungsraum.</p>
-      </section>
+    <div class="columns">
+    
+      <div class="column is-4">
+        <div class="card dynamic-bg dynamic-col" data-datetime="">
+          <div class="card-content">
+            <p><b>Veranstaltungen</b></p>
+            <p>Zur archdiploma findet ein Veranstaltungsprogramm statt, welches Inhalte der Ausstellung auf einer diskursiven Ebene aufgreift und zum Gegenstand von Debatten, Workshops und Lehrveranstaltungen macht.</p>
+          </div>
+        </div>
+      </div>
       
+      <div class="column is-8">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-12T19:00">
+          <div class="card-content">
+            <p>
+              12. Oktober, 19 Uhr<br>
+              <b>Vernissage</b>
+            </p>
+            <p>Die archdiploma feiert Jubiläum! Bereits zum zehnten Mal werden Diplomarbeiten, die an der Fakultät für Architektur und Raumplanung erarbeitet wurden, ausgestellt. Zu sehen ist ein breites Spektrum, von stadt- und raumplanerischen Strategien über architektonische Entwürfe und Umsetzungen bis hin zu theoretischen Auseinandersetzungen, das unterschiedlichste Themen und Zugänge sichtbar macht. Die Archdiploma 2017 versteht sich als Plattform, um über Ausbildung, das Berufsfeld sowie Werte und Haltungen künftiger ArchitektInnen und PlanerInnen zu diskutieren.</p>
+          </div>
+        </div>
+      </div>
+    
+        
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-13T19:00">
+          <div class="card-content">
+            <p>
+              13. Oktober, 19 Uhr<br>
+              <b>Architekturstudium > Fachhochschule oder Universität oder beides?</b>
+            </p>
+            <p>Welche akademische Ausbildung brauchen Architektinnen und Architekten (in) der Zukunft?</p>
+            <p>Letztes Jahr sorgte die Frage, ob eine Universität überhaupt die richtige Einrichtung für ein Architekturstudium sei oder ob es künftig nur mehr an Fachhochschulen angeboten werden soll, für Schlagzeilen. Vor diesem Hintergrund wird im Rahmen der Archdiploma 2017 debattiert.</p>
+            <p>Gäste: Susanne Buck (Wissenschaftsministerium), Rudolf Scheuvens (Fakultät für Architektur und Raumplanung, TU Wien), N.N. (Kammer der ZiviltechnikerInnen), N.N. (IG-Architektur)<br>
+            Moderation: Alexander Hagner (FH Kärnten &amp; TU Graz)</p>
+          </div>
+        </div>
+      </div>
+        
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-13T19:00">
+          <div class="card-content">
+            <p>Ab 13. Oktober<br>
+              <b>1:1 Lehmbauseminar</b>
+            </p>
+            <p>Wöchentlich, Montag und Freitag, 13–18 Uhr<br>Achtung: In KW 44 findet der Termin am Donnerstag den 2.11. statt.</p>
+            <p>Realisierung einer Wand aus selbst hergestellten ungebrannten Lehmsteinen im Rahmen eines am Fachgebiet Baugeschichte und Bauforschung durchgeführten Seminars.</p>
+            <p>Die Veranstalter und Lehrveranstaltungsleiter David Kraler und Christoph Lachberger sind Aussteller der Archdiploma 2017, die Lehmsteinwand ist ein Exponat zu ihrer Diplomarbeit.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-18T17:00">
+          <div class="card-content">
+            <p>
+              18. Oktober, 17 Uhr<br>
+              <b>AusstellerInnen-Führung</b>
+            </p>
+            <p>AbsolventInnen der Fakultät für Architektur und Raumplanung und AusstellerInnen der Archdiploma 2017 präsentieren ihre Arbeiten und stehen für Fragen zur Verfügung.</p>
+          </div>
+        </div>
+      </div>
+        
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-19T17:30">
+          <div class="card-content">
+            <p>
+              19. Oktober, 17.30–19.30 Uhr<br>
+              <b>ÖGR-Konferenz</b>
+            </p>
+            <p>T.B.A</p>
+            <p>Gastgeber: ÖGR Österreichische Gesellschaft für Raumplanung</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-19T20:30">
+          <div class="card-content">
+            <p>
+              19. Oktober, 20.30 Uhr<br>
+              <b>The Becoming of an Architect II</b>
+            </p>
+            <p>Während im ersten Teil von „The Becoming of an Architect“ beachtenswerte, internationale Architektinnen und Architekten von ihren Erfahrungen aus jungen Jahren erzählen, übernimmt in Teil zwei der Dokumentation die nächste Generation. Die AusstellerInnen der Archdiploma 2017 sprechen über ihre Zeit während der Diplomarbeit und welche Erfahrungen sie gemacht haben.</p>
+            <p>Gastgeber: Mies. Magazin – Verein für Architekturinteressierte</p>
+          </div>
+        </div>
+      </div>
+        
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-20T20:00">
+          <div class="card-content">
+            <p>
+              23. Oktober, 20 Uhr<br>
+              <b>Was Sie schon immer über Diplomarbeiten wissen wollten​</b>
+            </p>
+            <p>Eine Diplomarbeit anfangen ist keine leichte Sache... darüber reden hilft – Erfahrungsberichte von AbsolventInnen für „noch“ Studierende.</p>
+            <p>Bei Interesse bitte eine Email an <a href="mailto:WissenDiplomarbeiten@gmail.com">WissenDiplomarbeiten@gmail.com</a></p>
+            <p>Gastgeberinnen: Petra Panna Nagy und Shi Yin</p>
+          </div>
+        </div>
+      </div>
+        
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-25T16:00">
+          <div class="card-content">
+            <p>
+              25. Oktober, 16–18 Uhr<br>
+              <b>Raumplanung lehren und lernen​</b>
+            </p>
+            <p>Eine Informations- und Austauschveranstaltung der Studienkommission Raumplanung und Raumordnung</p>
+            <p>Die STUKO Raumplanung und Raumordnung präsentiert den aktuellen Stand der Studienplanreform und lädt alle Interessierten zu einem Austausch über den Reformprozess ein.</p>
+          </div>
+        </div>
+      </div>
+        
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-10-30T19:00">
+          <div class="card-content">
+            <p>
+              30. Oktober, 19 Uhr<br>
+              <b>Energie in Architektur und Planung​</b><br>
+            </p>
+            <p>Von den Materialien eines Gebäudes bis zur Planung auf regionaler Ebene wird das Thema Energie immer wichtiger. Neben der Energieeffizienz spielen auch der Einsatz von erneuerbarer Energie und die Versorgungsstruktur an sich eine wesentliche Rolle. Doch wie erfolgt die Abstimmung zwischen den unterschiedlichen räumlichen Ebenen, wo sind die Schnittpunkte und wesentlichen Ansatzpunkte in der Kooperation zwischen Architektur und Planung? Welche Herausforderungen stellen sich in Forschung und Praxis, um bei diesen integrativen Zielen schneller und umsetzungsstärker als bisher voranzukommen, und zwar in bestehenden wie in neuen Siedlungen und Quartieren?</p>
+            <p>Gäste: Stefan Geier (MA 20), Ardeshir Mahdavi (Abteilung Bauphysik und Bauökologie, TU Wien), Hannes Schaffer (mecca consulting), Karin Stieldorf (Institut für Architektur und Entwerfen, TU Wien), N.N. (A.I.T.)</p>
+            <p>Moderation: Sibylla Zech</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="column is-4">
+        <div class="event card dynamic-brdr" data-datetime="2017-11-11T19:00">
+          <div class="card-content">
+            <p>
+              11. November, 19 Uhr<br>
+              <b>Finissage mit Podiumsdiskussion ​</b><br>
+            </p>
+            <p>Anlässlich des Jubiläums der archdiploma, reflektieren VertreterInnen der Universitäten sowie der Planungspraxis über die Entwicklungen der Disziplinen Architektur und Raumplanung in den 2000er Jahren.</p>
+            <p>Gäste: Christian Kühn (Studiendekan Architektur und Building Science, TU Wien), Rudolf Scheuvens (Dekan Fakultät für Architektur und Raumplanung, TU Wien), Gesa Witthöft (Fachbereich Soziologie, TU Wien), N.N.</p>
+            <p>Moderation: Walter Chramosta</p>
+          </div>
+        </div>
+      </div>
+    
+    </div>  <!-- /.columns -->
+  </section>
+  
+  <div class="columns">
+    <div class="column">
       <section id="links">
         <b>Archdiploma Archiv</b><br>
         <div class="content">
           <a href="http://archdiploma15.archlab.tuwien.ac.at" target="_blank">2015</a> — <a href="http://archdiploma13.archlab.tuwien.ac.at" target="_blank">2013</a> — <a href="http://archdiploma11.archlab.tuwien.ac.at" target="_blank">2011</a> — <a href="http://archdiploma09.archlab.tuwien.ac.at" target="_blank">2009</a> — <a href="http://archdiploma07.archlab.tuwien.ac.at" target="_blank">2007</a> — <a href="http://archdiploma05.archlab.tuwien.ac.at"  target="_blank">2005</a>
         </div>
-        </section>
-    </div>
-    <!-- Right Column -->
-    <div class="column is-one-quarter">
-      <section id="events">
-        <p>
-          <b>Veranstaltungen</b><br>
-          Zur archdiploma findet ein Veranstaltungsprogramm statt, welches Inhalte der Ausstellung auf einer diskursiven Ebene aufgreift und zum Gegenstand von Debatten, Workshops und Lehrveranstaltungen macht.
-        </p>
-        
-        <div class="card">
-          <div class="card-content">12. Oktober, 19 Uhr<br><b>Vernissage</b></div>
-          <footer class="card-footer">
-            <a href="#" class="card-footer-item">Facebook</a>
-            <a href="#" class="card-footer-item">Kalender</a>
-          </footer>
-        </div>
-        
-        <div class="card">
-          <div class="card-content">7. November, 19 Uhr<br><b>Finissage</b></div>
-          <footer class="card-footer">
-            <a href="#" class="card-footer-item">Facebook</a>
-            <a href="#" class="card-footer-item">Kalender</a>
-          </footer>
-        </div>
-        
       </section>
     </div>
   </div>
@@ -261,6 +405,8 @@
       <div class="column"><div class="layered-img"><img src="assets/img/logos/just.png" alt=""><img src="assets/img/logos/just_wr.png" alt=""><img src="assets/img/logos/just_w.png" alt=""></div></div>
       <div class="column"><div class="layered-img"><img src="assets/img/logos/lehmputze.png" alt=""><img src="assets/img/logos/lehmputze_wr.png" alt=""><img src="assets/img/logos/lehmputze_w.png" alt=""></div></div>
       <div class="column"><div class="layered-img"><img src="assets/img/logos/porr.png" alt=""><img src="assets/img/logos/porr_wr.png" alt=""><img src="assets/img/logos/porr_w.png" alt=""></div></div>
+    </div>
+    <div class="columns">
       <div class="column"><div class="layered-img"><img src="assets/img/logos/raum.png" alt=""><img src="assets/img/logos/raum_wr.png" alt=""><img src="assets/img/logos/raum_w.png" alt=""></div></div>
       <div class="column"><div class="layered-img"><img src="assets/img/logos/schiessling.png" alt=""><img src="assets/img/logos/schiessling_wr.png" alt=""><img src="assets/img/logos/schiessling_w.png" alt=""></div></div>
       <div class="column"><div class="layered-img"><img src="assets/img/logos/wien.png" alt=""><img src="assets/img/logos/wien_wr.png" alt=""><img src="assets/img/logos/wien_w.png" alt=""></div></div>
