@@ -116,12 +116,13 @@
       $.fn.showLayer = function(idx, time) {
         return this.each(function() {
           if (time == undefined) time = 0;
+          var opts = {duration:time, easing:"linear"};
           var $imgs = $(this).find("img");
           $imgs.stop();
-          $imgs.filter(":visible").fadeOut(time);
+          $imgs.filter(":visible").fadeOut(opts);
           var $show = $imgs.eq(idx);
           if (!$show.length) $show = $imgs.last();
-          $show.stop().fadeIn(time);
+          $show.stop().fadeIn(opts);
         });
       };
       
@@ -133,9 +134,9 @@
       
       updateColor = function() {
         var t = vid.currentTime;
-        if (t > 29.44) setColor("#fff", "#000", "w", "#000");
-        else if (t > 20)  setColor("#000", "#F3F3F3", "b", "#aaa");
-        else if (t > 10.12)  setColor("#FFF", "#FF4947", "r", "#FF4947");
+        if (t > 29.44) setColor("#fff", "#000", "w", "#000", 440);
+        else if (t > 20.00)  setColor("#000", "#F3F3F3", "b", "#aaa", 1240);
+        else if (t > 10.12)  setColor("#FFF", "#FF4947", "r", "#FF4947", 680);
         // console.log(t);
       };
       setInterval(updateColor, 25);
