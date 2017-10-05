@@ -28,10 +28,6 @@
       font-weight: normal;
     }
     body {
-      /*font-family: "Dia";
-      font-weight: normal;
-      font-size: 22px;*/
-      /*line-height: 22px;*/
       padding:1rem;
       font-size:1.2rem;
     }
@@ -48,7 +44,7 @@
       z-index: 9999;
       pointer-events: none;
     }
-    #cover { overflow:hidden; }
+    #cover { overflow:hidden; margin:0; padding:0; }
     video#bgvid {
       position: relative;
       top: 50%;
@@ -65,8 +61,12 @@
       background-size: cover;
       max-width:none;
     }
-    #logo { width:200px; position:absolute; top:1rem; left:1rem; }
-    #date { width:76px; position:absolute; top:1rem; right:1rem; }
+    #header {position: absolute; width:100%; top:0; left:0; transition:height 0.3s; }
+    #logo { width:200px; position:absolute; top:1rem; left:1rem; transition: transform 0.5s; transform-origin:top left; }
+    #date { width:76px; position:absolute; top:1rem; right:1rem; transition: transform 0.5s; transform-origin:top right; }
+    #header.sticky { position:fixed; height:63px; z-index:1; }
+    #header.sticky #logo { transform:scale(0.5); }
+    #header.sticky #date { transform:scale(0.65); }
     
     .layered-img { position:relative; display:inline-block; }
     .layered-img img { display:block; position:absolute; top:0; left:0; }
@@ -96,6 +96,7 @@
       #date { width:95px; }
       #subtitle { font-size:1.5rem; }
       #faculty { visibility: visible; }
+      #header.sticky { position:fixed; height:73px;
     }
     
     /* desktop and up */
@@ -177,6 +178,11 @@
       };
       setInterval(updateColor, 25);
       $(window).on("focus", updateColor);
+      
+      $(window).on("scroll", function(e) {
+        if (window.scrollY > 0) $("#header").addClass('sticky');
+        else $("#header").removeClass('sticky');
+      });
     });
   </script>
   
@@ -191,8 +197,11 @@
       <!-- fallback gif -->
       <!-- <img src="assets/img/image.gif"> -->
     </video>
-    <span id="logo" class="layered-img"><img src="assets/img/logo.png" alt="Archdiploma 2017"><img src="assets/img/logo_w.png" alt="Archdiploma 2017"></span>
-    <span id="date" class="layered-img right"><img src="assets/img/date.png" alt="12.10. – 7.11."><img src="assets/img/date_w.png" alt="12.10. – 7.11."></span>
+    <div id="header" class="dynamic-bg">
+      <span id="logo" class="layered-img"><img src="assets/img/logo.png" alt="Archdiploma 2017"><img src="assets/img/logo_w.png" alt="Archdiploma 2017"></span>
+      <span id="date" class="layered-img right"><img src="assets/img/date.png" alt="12.10. – 7.11."><img src="assets/img/date_w.png" alt="12.10. – 7.11."></span>
+    </div>
+    
     <div id="subtitle" class="dynamic-col"><b>Diplomarbeiten aus Architektur und Raumplanung</b></div>
     <div id="faculty" class="layered-img right"><img src="assets/img/aplusr.png" alt="TU Wien"><img src="assets/img/aplusr_wr.png" alt="TU Wien"><img src="assets/img/aplusr_w.png" alt="TU Wien"></div>
   </section>
