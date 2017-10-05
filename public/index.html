@@ -76,12 +76,11 @@
     #faculty { width:150px; height:62px; position:absolute; bottom:1.2rem; right:1.1rem; visibility:hidden; }
     section { margin:0 0 1rem; padding:0.5rem; }
     
-    #facts,#team { text-align:center; }
+    #facts, #team { text-align:center; }
     #links { text-align:center; }
     #links .content { font-size:1.5rem; }
     /*#events .card { font-size:0.8rem; margin-top:1rem; width:95%; } */
     
-    #events { padding: 2rem 5rem; }
     #events .columns { flex-wrap:wrap; }
     #events .event  { border-width:1px; border-style:solid; font-size:1.2rem;}
     #events .card { background-color:inherit; height:100%; }
@@ -100,8 +99,15 @@
     }
     
     /* desktop and up */
-    @media screen and (min-width: 1008px) {
-      
+    @media screen and (min-width: 1024px) {
+    }
+    
+    /* widescreen and up */
+    @media screen and (min-width: 1216px) {
+      #events { padding: 2rem 5rem; }
+    }
+    /* fullhd and up */
+    @media screen and (min-width: 1408px) {
       
     }
   </style>
@@ -256,7 +262,7 @@
     
     <div class="columns">
     
-      <div class="column is-4">
+      <div class="column is-one-third">
         <div class="card dynamic-bg dynamic-col" data-datetime="">
           <div class="card-content">
             <p><b>Veranstaltungen</b></p>
@@ -265,7 +271,7 @@
         </div>
       </div>
       
-      <div class="column is-8">
+      <div class="column is-two-thirds">
         <div class="event card dynamic-brdr" data-datetime="2017-10-12T19:00">
           <div class="card-content">
             <p>
@@ -278,7 +284,7 @@
       </div>
     
         
-      <div class="column is-4">
+      <div class="column is-half is-one-third-widescreen">
         <div class="event card dynamic-brdr" data-datetime="2017-10-13T19:00">
           <div class="card-content">
             <p>
@@ -293,7 +299,7 @@
         </div>
       </div>
         
-      <div class="column is-4">
+      <div class="column is-half is-one-third-widescreen">
         <div class="event card dynamic-brdr" data-datetime="2017-10-13T19:00">
           <div class="card-content">
             <p>Ab 13. Oktober<br>
@@ -306,7 +312,7 @@
         </div>
       </div>
       
-      <div class="column is-4">
+      <div class="column is-half is-one-third-widescreen">
         <div class="event card dynamic-brdr" data-datetime="2017-10-18T17:00">
           <div class="card-content">
             <p>
@@ -318,7 +324,7 @@
         </div>
       </div>
         
-      <div class="column is-4">
+      <div class="column is-half is-one-third-widescreen">
         <div class="event card dynamic-brdr" data-datetime="2017-10-19T17:30">
           <div class="card-content">
             <p>
@@ -331,7 +337,7 @@
         </div>
       </div>
       
-      <div class="column is-4">
+      <div class="column is-half is-one-third-widescreen">
         <div class="event card dynamic-brdr" data-datetime="2017-10-19T20:30">
           <div class="card-content">
             <p>
@@ -344,7 +350,7 @@
         </div>
       </div>
         
-      <div class="column is-4">
+      <div class="column is-half is-one-third-widescreen">
         <div class="event card dynamic-brdr" data-datetime="2017-10-20T20:00">
           <div class="card-content">
             <p>
@@ -358,7 +364,7 @@
         </div>
       </div>
         
-      <div class="column is-4">
+      <div class="column is-half is-one-third-widescreen">
         <div class="event card dynamic-brdr" data-datetime="2017-10-25T16:00">
           <div class="card-content">
             <p>
@@ -371,7 +377,7 @@
         </div>
       </div>
         
-      <div class="column is-4">
+      <div class="column is-half is-two-thirds-widescreen">
         <div class="event card dynamic-brdr" data-datetime="2017-10-30T19:00">
           <div class="card-content">
             <p>
@@ -385,7 +391,7 @@
         </div>
       </div>
       
-      <div class="column is-4">
+      <div class="column is-full">
         <div class="event card dynamic-brdr" data-datetime="2017-11-11T19:00">
           <div class="card-content">
             <p>
