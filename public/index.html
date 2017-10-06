@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="dynamic-bg">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,6 +50,7 @@
       z-index: 9999;
       pointer-events: none;
     }
+    .main { background-color:#fff; }
     #cover { overflow:hidden; margin:0; padding:0; }
     video#bgvid {
       position: relative;
@@ -85,7 +86,6 @@
     #facts, #team { text-align:center; }
     #links { text-align:center; }
     #links .content { font-size:1.5rem; }
-    /*#events .card { font-size:0.8rem; margin-top:1rem; width:95%; } */
     
     #events .columns { flex-wrap:wrap; }
     #events .event  { border-width:1px; border-style:solid; font-size:1.2rem;}
@@ -191,9 +191,10 @@
   </script>
   
 </head>
-<body>
+<body class="dynamic-bg">
+
   <div class="outline dynamic-otln"></div>
-  
+  <div class="main">
   <section id="cover" class="dynamic-bg">
     <video playsinline="" autoplay="" muted="" loop="" preload="metadata" id="bgvid">
       <!-- <source src="assets/vid/.webm" type="video/webm"> -->
@@ -448,6 +449,7 @@
       <div class="column"><div class="layered-img"><img src="assets/img/logos/wittmann.png" alt=""><img src="assets/img/logos/wittmann_wr.png" alt=""><img src="assets/img/logos/wittmann_w.png" alt=""></div></div>
     </div>
   </section>
+  </div> <!-- /.main -->
   
 </body>
 </html>
