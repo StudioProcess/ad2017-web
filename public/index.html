@@ -123,13 +123,11 @@
   <script>
     $(function() {
       var current_fg, current_bg;
-      var fade = 300;
       
       var setColor = function(fg, bg, logo, link, time) {
-        if (time !== 0) time = fade;
-        if (fg != current_fg || bg != current_bg) {
+        if (time === 0 || fg != current_fg || bg != current_bg) {
           current_fg = fg; current_bg = bg;
-          $(".dynamic-bg, .dynamic-col, .dynamic-otln, .dynamic-brdr, a").stop(); // cancel animations
+          $(".dynamic-bg, .dynamic-col, .dynamic-otln, .dynamic-brdr, a").stop(true); // cancel animations, clear queue
           $(".dynamic-bg").animate({"backgroundColor": bg}, time);
           $(".dynamic-col").animate({"color": fg}, time);
           $(".dynamic-otln").animate({"outline-color": bg}, time);
@@ -176,15 +174,16 @@
       
       var vid = $("#bgvid")[0];
       
-      updateColor = function() {
+      updateColor = function(time) {
+        // console.log("updateColor", time);
         var t = vid.currentTime;
-        if (t > 29.44) setColor("#fff", "#000", "w", "#000", 440);
-        else if (t > 20.00)  setColor("#000", "#F3F3F3", "b", "#aaa", 1240);
-        else if (t > 10.12)  setColor("#FFF", "#FF4947", "r", "#FF4947", 680);
-        // console.log(t);
+        if (t > 29.44) setColor("#fff", "#000", "w", "#000", time!==undefined?time:440);
+        else if (t > 20.00)  setColor("#000", "#F3F3F3", "b", "#aaa", time!==undefined?time:1240);
+        else if (t > 10.12)  setColor("#FFF", "#FF4947", "r", "#FF4947", time!==undefined?time:680);
+        else if (t > 0)  setColor("#FFF", "#000", "w", "#000", time!==undefined?time:0);
       };
       setInterval(updateColor, 25);
-      $(window).on("focus", updateColor);
+      $(window).on("focus", function() { updateColor(0); });
       
       $(window).on("scroll", function(e) {
         if (window.scrollY > 0) $("#header").addClass('sticky');
